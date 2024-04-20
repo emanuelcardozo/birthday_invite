@@ -1,73 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MainSection from "../components/MainSection.astro";
 ---
 
 <Layout title="Cumple de Isabella">
   <main>
     <section>
-      <div class="intro-container">
-        <h1 id="title">BautiCumple</h1>
-        <div class="img-container">
-          <img class="img-isu" src="/img/isu_1.png" alt="Isabella" />
-        </div>
-        <h1 id="subtitle">de Isabella</h1>
-      </div>
+      <MainSection />
     </section>
   </main>
 </Layout>
 
-<script is:inline>
-  const circleTypeTitle = new CircleType(document.getElementById("title"));
-  circleTypeTitle.radius(205);
-
-  const circleTypeSubTitle = new CircleType(
-    document.getElementById("subtitle")
-  );
-  circleTypeSubTitle.radius(200).dir(-1);
-</script>
-
 <style>
   section {
     width: 100dvw;
-  }
-
-  .intro-container {
-    border-radius: 50%;
-  }
-  h1 {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-size: 3.5rem;
-    color: var(--dark-pink);
-    -webkit-text-stroke-width: 1px; /* Ancho del trazo del texto */
-    -webkit-text-stroke-color: var(--pink);
-    text-shadow: 2px 2px 2px gray;
-  }
-
-  .img-container {
-    display: flex;
-    justify-content: center;
-    margin-inline: auto;
-    margin-block: -9rem -7.5rem;
-
-    height: 250px;
-    width: 250px;
-
-    border: 1rem solid white;
-    border-radius: 50%;
-    box-shadow: 5px 10px 10px lightgray;
-    background-image: url("/img/relieve.png");
-    background-blend-mode: overlay;
-    background-color: var(--dark-pink);
-    overflow: hidden;
-
-    position: relative;
-  }
-
-  img {
-    width: auto;
-    object-fit: fill;
-    filter: drop-shadow(5px 5px 5px var(--pink));
-
-    margin: 1rem;
   }
 </style>
