@@ -1,12 +1,12 @@
-<section>
-  <div class="intro-container">
-    <h1 id="title">BautiCumple</h1>
-    <div class="img-container">
-      <img class="img-isu" src="/img/isu_1.png" alt="Isabella" />
-    </div>
-    <h1 id="subtitle">de Isabella</h1>
+<div class="intro-container">
+  <h1 id="title">BautiCumple</h1>
+  <div
+    class="img-container animate__delay-1s animate__animated animate__rollIn"
+  >
+    <img class="img-isu" src="/img/isu_1.png" alt="Isabella" />
   </div>
-</section>
+  <h1 id="subtitle">de Isabella</h1>
+</div>
 
 <script is:inline>
   const circleTypeTitle = new CircleType(document.getElementById("title"));
@@ -20,7 +20,11 @@
 
 <style>
   .intro-container {
-    border-radius: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   h1 {
     font-family: Georgia, Times, "Times New Roman", serif;
@@ -51,11 +55,26 @@
     position: relative;
   }
 
-  img {
+  .img-isu {
     width: auto;
     object-fit: fill;
     filter: drop-shadow(5px 5px 5px var(--pink));
 
     margin: 1rem;
+  }
+
+  #title,
+  #subtitle {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out 2s forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 </style>

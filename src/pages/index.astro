@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MainSection from "../components/MainSection.astro";
+import BirthDaySection from "../components/BirthDaySection.astro";
 ---
 
 <Layout title="Cumple de Isabella">
@@ -8,11 +9,24 @@ import MainSection from "../components/MainSection.astro";
     <section>
       <MainSection />
     </section>
+    <section>
+      <BirthDaySection />
+    </section>
   </main>
 </Layout>
 
 <style>
+  main {
+    height: 100dvh;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
   section {
     width: 100dvw;
+    height: 100dvh;
+
+    scroll-snap-align: center;
   }
 </style>
