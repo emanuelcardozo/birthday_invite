@@ -1,11 +1,23 @@
 <div class="intro-container">
-  <h1 id="title">BautiCumple</h1>
+  <!-- <img class="img-balloons" src="/img/rainbow.png" alt="angel" /> -->
+  <img
+    class="img-angel animate__delay-3s animate__animated animate__slideInLeft"
+    src="/img/angel.png"
+    alt="angel"
+  />
+  <div
+    class="number typography animate__delay-3s animate__animated animate__slideInRight"
+  >
+    1
+  </div>
+
+  <h1 id="title" class="typography faded">BautiCumple</h1>
   <div
     class="img-container animate__delay-1s animate__animated animate__rollIn"
   >
     <img class="img-isu" src="/img/isu_1.png" alt="Isabella" />
   </div>
-  <h1 id="subtitle">de Isabella</h1>
+  <h1 id="subtitle" class="typography faded">de Isabella</h1>
 </div>
 
 <script is:inline>
@@ -15,7 +27,7 @@
   const circleTypeSubTitle = new CircleType(
     document.getElementById("subtitle")
   );
-  circleTypeSubTitle.radius(200).dir(-1);
+  circleTypeSubTitle.radius(210).dir(-1);
 </script>
 
 <style>
@@ -25,14 +37,36 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    position: relative;
+
+    background: radial-gradient(circle, white, var(--pink));
   }
   h1 {
-    font-family: Georgia, Times, "Times New Roman", serif;
     font-size: 3.5rem;
+  }
+
+  .typography {
+    font-family: Georgia, Times, "Times New Roman", serif;
     color: var(--dark-pink);
-    -webkit-text-stroke-width: 1px; /* Ancho del trazo del texto */
     -webkit-text-stroke-color: var(--pink);
+    -webkit-text-stroke-width: 1px; /* Ancho del trazo del texto */
     text-shadow: 2px 2px 2px gray;
+  }
+
+  .number {
+    position: absolute;
+    bottom: -4rem;
+    right: 0;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 20rem;
+    color: #ebeb8a;
+    -webkit-text-stroke-color: #fdfd96;
+
+    filter: drop-shadow(5px 5px 5px var(--dark-pink));
   }
 
   .img-container {
@@ -46,13 +80,14 @@
 
     border: 1rem solid white;
     border-radius: 50%;
-    box-shadow: 5px 10px 10px lightgray;
+    box-shadow: 5px 5px 0px gray;
+
     background-image: url("/img/relieve.png");
     background-blend-mode: overlay;
-    background-color: var(--dark-pink);
     overflow: hidden;
 
     position: relative;
+    filter: drop-shadow(5px 5px 5px var(--dark-pink));
   }
 
   .img-isu {
@@ -63,8 +98,20 @@
     margin: 1rem;
   }
 
+  .img-angel {
+    width: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: drop-shadow(5px 5px 5px var(--dark-pink));
+  }
+
   #title,
   #subtitle {
+    backdrop-filter: blur(50px) saturate(100%);
+  }
+
+  .faded {
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out 2s forwards;
   }
