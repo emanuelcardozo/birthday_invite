@@ -1,26 +1,47 @@
+---
+import Heart from "./Heart.astro";
+---
+
 <div class="confirmation-container">
-  <div class="img-container">
-    <img class="img-isu animate__animated" src="/img/Isu_4.png" alt="Isu" />
-    <div id="dialog" class="dialog animate__delay-1s animate__animated">
-      <p>Hola, el 18 de Mayo, a las 20hs festejo mi cumple</p>
+  <div class="bg_container">
+    <div class="bg_heart">
+      <Heart />
+      <Heart />
+      <Heart />
+      <Heart />
+      <Heart />
+      <Heart />
     </div>
-    <img
-      id="img-isu"
-      class="img-isu animate__animated"
-      src="/img/Isu_4.png"
-      alt="isu"
-    />
+  </div>
+  <div class="img-container">
+    <img class="img-isu" src="/img/Isu_4.png" alt="isu" />
   </div>
 </div>
 
 <style>
   .confirmation-container {
     height: 100dvh;
-    background: radial-gradient(circle, white, #84b6f4);
 
     position: relative;
   }
 
+  .bg_container {
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .bg_heart {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
   .img-container {
     width: 30rem;
     height: 100%;
@@ -37,66 +58,4 @@
     left: -5rem;
     bottom: 0;
   }
-
-  .dialog {
-    width: 75%;
-    background-color: white;
-    border: 4px solid black;
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-
-    position: relative;
-
-    opacity: 0;
-  }
-
-  .dialog::after {
-    width: 40px;
-    height: 40px;
-    content: "";
-    background-color: white;
-
-    border-left: 4px solid black;
-    border-bottom: 4px solid black;
-    transform: rotate(-45deg) skew(-10deg, -10deg);
-
-    position: absolute;
-    bottom: -1.6rem;
-    right: 5rem;
-  }
-
-  .dialog p {
-    font-size: 1.5rem;
-  }
 </style>
-
-<script>
-  const imgIsu = document.querySelector("#img-isu");
-  const observer = new IntersectionObserver((entries) => {
-    // Loop over the entries
-    entries.forEach((entry) => {
-      // If the element is visible
-      if (entry.isIntersecting) {
-        // Add the animation class
-        if (imgIsu) {
-          imgIsu.classList.add("animate__slideInRight");
-        }
-
-        const dialog = document.querySelector("#dialog");
-        if (dialog) {
-          dialog.classList.add("animate__fadeIn");
-        }
-
-        const rainbow = document.querySelector("#rainbow");
-        if (rainbow) {
-          rainbow.classList.add("animate__rotateInDownLeft");
-        }
-      }
-    });
-  });
-
-  if (imgIsu) {
-    observer.observe(imgIsu);
-  }
-</script>
