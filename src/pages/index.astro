@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import MainSection from "../components/MainSection.astro";
 import BirthDaySection from "../components/BirthDaySection.astro";
+import ConfirmationSection from "../components/ConfirmationSection.astro";
 ---
 
 <Layout title="Cumple de Isabella">
@@ -12,12 +13,15 @@ import BirthDaySection from "../components/BirthDaySection.astro";
     <section>
       <BirthDaySection />
     </section>
+    <section>
+      <ConfirmationSection />
+    </section>
   </main>
 </Layout>
 
 <style>
   main {
-    height: 100dvh;
+    height: 100vh;
 
     overflow-x: hidden;
     overflow-y: scroll;
@@ -25,7 +29,7 @@ import BirthDaySection from "../components/BirthDaySection.astro";
   }
   section {
     width: 100dvw;
-    height: 100dvh;
+    height: 100vh;
 
     scroll-snap-align: center;
   }

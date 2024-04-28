@@ -20,7 +20,7 @@
 
 <style>
   .birthday-container {
-    height: 100%;
+    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,25 +84,33 @@
   }
 </style>
 
-<script is:inline>
+<script>
+  const imgIsu = document.querySelector("#img-isu");
+
   const observer = new IntersectionObserver((entries) => {
     // Loop over the entries
     entries.forEach((entry) => {
       // If the element is visible
       if (entry.isIntersecting) {
         // Add the animation class
-        document
-          .querySelector("#img-isu")
-          .classList.add("animate__slideInRight");
+        if (imgIsu) {
+          imgIsu.classList.add("animate__slideInRight");
+        }
 
-        document.querySelector("#dialog").classList.add("animate__fadeIn");
+        const dialog = document.querySelector("#dialog");
+        if (dialog) {
+          dialog.classList.add("animate__fadeIn");
+        }
 
-        document
-          .querySelector("#rainbow")
-          .classList.add("animate__rotateInDownLeft");
+        const rainbow = document.querySelector("#rainbow");
+        if (rainbow) {
+          rainbow.classList.add("animate__rotateInDownLeft");
+        }
       }
     });
   });
 
-  observer.observe(document.querySelector("#img-isu"));
+  if (imgIsu) {
+    observer.observe(imgIsu);
+  }
 </script>
