@@ -1,3 +1,7 @@
+---
+import Dialog from "./Dialog.astro";
+---
+
 <div class="birthday-container">
   <div class="img-container">
     <img
@@ -6,9 +10,11 @@
       src="/img/rainbow.png"
       alt="rainbow"
     />
-    <div id="dialog" class="dialog animate__delay-1s animate__animated">
-      <p>Hola, el 18 de Mayo, a las 20hs festejo mi cumple</p>
-    </div>
+    <Dialog
+      id="dialog"
+      message="Hola, el 18 de Mayo, a las 20hs festejo mi cumple"
+      side="right"
+    />
     <img
       id="img-isu"
       class="img-isu animate__animated"
@@ -33,44 +39,7 @@
   .img-container {
     width: 30rem;
     height: 100%;
-    /* background-image: url("/img/wave_container.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
-
     position: relative;
-  }
-
-  .dialog {
-    width: 75%;
-    background-color: white;
-    border: 4px solid black;
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-
-    position: relative;
-
-    opacity: 0;
-  }
-
-  .dialog::after {
-    width: 40px;
-    height: 40px;
-    content: "";
-    background-color: white;
-
-    border-left: 4px solid black;
-    border-bottom: 4px solid black;
-    transform: rotate(-45deg) skew(-10deg, -10deg);
-
-    position: absolute;
-    bottom: -1.6rem;
-    right: 5rem;
-  }
-
-  .dialog p {
-    font-size: 1.5rem;
   }
 
   .img-isu {

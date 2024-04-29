@@ -1,0 +1,57 @@
+---
+interface Props {
+  id: string;
+  message: string;
+  side?: string;
+}
+
+const { id, message, side = "left" } = Astro.props;
+---
+
+<div id={id} class={"dialog animate__delay-1s animate__animated " + side}>
+  <p>{message}</p>
+</div>
+
+<style>
+  .dialog {
+    width: 70vw;
+    background-color: white;
+    border: 4px solid black;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+
+    position: relative;
+
+    opacity: 0;
+    margin: auto;
+
+    bottom: 0;
+  }
+
+  .dialog::after {
+    width: 40px;
+    height: 40px;
+    content: "";
+    background-color: white;
+
+    border-left: 4px solid black;
+    border-bottom: 4px solid black;
+    transform: rotate(-45deg) skew(-10deg, -10deg);
+
+    position: absolute;
+    bottom: -1.6rem;
+  }
+
+  .dialog.right::after {
+    right: 5rem;
+  }
+
+  .dialog.left::after {
+    left: 5rem;
+  }
+
+  .dialog p {
+    font-size: 1.5rem;
+  }
+</style>

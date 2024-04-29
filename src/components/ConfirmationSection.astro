@@ -1,4 +1,5 @@
 ---
+import Dialog from "./Dialog.astro";
 import Heart from "./Heart.astro";
 ---
 
@@ -14,13 +15,25 @@ import Heart from "./Heart.astro";
     </div>
   </div>
   <div class="img-container">
-    <img class="img-isu" src="/img/Isu_4.png" alt="isu" />
+    <Dialog
+      id="dialog2"
+      message="Hola familia y amigos, soy Isu y quiero presentarles..."
+    />
+    <img
+      id="img-isu2"
+      class="img-isu animate__animated"
+      src="/img/Isu_4.png"
+      alt="isu"
+    />
   </div>
 </div>
 
 <style>
   .confirmation-container {
     height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     position: relative;
   }
@@ -50,7 +63,7 @@ import Heart from "./Heart.astro";
   }
 
   .img-isu {
-    height: 80%;
+    max-height: 80%;
     filter: drop-shadow(5px 5px 5px gray);
     margin: auto;
 
@@ -59,3 +72,34 @@ import Heart from "./Heart.astro";
     bottom: 0;
   }
 </style>
+
+<script>
+  const imgIsu = document.querySelector("#img-isu2");
+
+  const observer = new IntersectionObserver((entries) => {
+    // Loop over the entries
+    entries.forEach((entry) => {
+      // If the element is visible
+      if (entry.isIntersecting) {
+        // Add the animation class
+        if (imgIsu) {
+          imgIsu.classList.add("animate__slideInUp");
+        }
+
+        const dialog = document.querySelector("#dialog2");
+        if (dialog) {
+          dialog.classList.add("animate__fadeIn");
+        }
+
+        const rainbow = document.querySelector("#rainbow");
+        if (rainbow) {
+          rainbow.classList.add("animate__rotateInDownLeft");
+        }
+      }
+    });
+  });
+
+  if (imgIsu) {
+    observer.observe(imgIsu);
+  }
+</script>
