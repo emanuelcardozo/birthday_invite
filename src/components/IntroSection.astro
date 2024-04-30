@@ -21,7 +21,7 @@ import ScrollArrows from "./ScrollArrows.astro";
 
 <style>
   .intro-container {
-    height: 100dvh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,6 +76,9 @@ import ScrollArrows from "./ScrollArrows.astro";
   function scrollToWelcome() {
     // @ts-ignore
     document.querySelector("#intro")?.style.setProperty("display", "none");
+
+    // @ts-ignore
+    document.bgAudio.play();
   }
 
   const button = document.querySelector("button");
