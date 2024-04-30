@@ -39,6 +39,14 @@ const { title } = Astro.props;
     font-display: swap;
   }
 
+  @font-face {
+    font-family: "HappyMonkey";
+    src: url("/fonts/HappyMonkey.ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   body {
     height: 100vh;
 
@@ -72,6 +80,18 @@ const { title } = Astro.props;
 </style>
 
 <script>
+  const bgAudio = new Audio("/audio/happy_day.mp3");
+
   // @ts-ignore
-  document.bgAudio = new Audio("/audio/happy_day.mp3");
+  document.bgAudio = bgAudio;
+
+  window.onblur = function () {
+    if (bgAudio) bgAudio.pause();
+  };
+
+  window.onfocus = function () {
+    if (bgAudio && bgAudio.paused && bgAudio.currentTime !== 0) {
+      bgAudio.play();
+    }
+  };
 </script>
