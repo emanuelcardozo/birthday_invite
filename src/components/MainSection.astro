@@ -14,7 +14,10 @@
       1
     </div>
 
-    <h1 id="title" class="typography animate__delay-2s animate__animated">
+    <h1
+      id="rounded-title"
+      class="typography animate__delay-2s animate__animated"
+    >
       BautiCumple
     </h1>
     <div
@@ -23,24 +26,14 @@
     >
       <img class="img-isu" src="/img/isu_1.png" alt="Isabella" />
     </div>
-    <h1 id="subtitle" class="typography animate__delay-2s animate__animated">
+    <h1
+      id="rounded-subtitle"
+      class="typography animate__delay-2s animate__animated"
+    >
       de Isabella
     </h1>
   </div>
 </section>
-
-<script>
-  // @ts-ignore
-  import CircleType from "circletype";
-
-  const circleTypeTitle = new CircleType(document.getElementById("title"));
-  circleTypeTitle.radius(205);
-
-  const circleTypeSubTitle = new CircleType(
-    document.getElementById("subtitle")
-  );
-  circleTypeSubTitle.radius(210).dir(-1);
-</script>
 
 <style>
   .main-container {
@@ -125,6 +118,17 @@
 </style>
 
 <script>
+  // @ts-ignore
+  import CircleType from "circletype";
+
+  const title = document.querySelector("#rounded-title");
+  const circleTypeTitle = new CircleType(title);
+  circleTypeTitle.radius(205);
+
+  const subtitle = document.querySelector("#rounded-subtitle");
+  const circleTypeSubTitle = new CircleType(subtitle);
+  circleTypeSubTitle.radius(210).dir(-1);
+
   const imgIsu = document.querySelector("#rounded-img");
 
   const observer = new IntersectionObserver((entries) => {
@@ -147,12 +151,10 @@
           angel.classList.add("animate__slideInLeft");
         }
 
-        const title = document.querySelector("#title");
         if (title) {
           title.classList.add("animate__fadeIn");
         }
 
-        const subtitle = document.querySelector("#subtitle");
         if (subtitle) {
           subtitle.classList.add("animate__fadeIn");
         }
