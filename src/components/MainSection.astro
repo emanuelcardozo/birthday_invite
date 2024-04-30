@@ -2,23 +2,30 @@
   <div class="main-container">
     <!-- <img class="img-balloons" src="/img/rainbow.png" alt="angel" /> -->
     <img
-      class="img-angel animate__delay-3s animate__animated animate__slideInLeft"
+      id="angel"
+      class="img-angel animate__delay-3s animate__animated"
       src="/img/angel.png"
       alt="angel"
     />
     <div
-      class="number typography animate__delay-3s animate__animated animate__slideInRight"
+      id="number"
+      class="number typography animate__delay-3s animate__animated"
     >
       1
     </div>
 
-    <h1 id="title" class="typography faded">BautiCumple</h1>
+    <h1 id="title" class="typography animate__delay-2s animate__animated">
+      BautiCumple
+    </h1>
     <div
-      class="img-container animate__delay-1s animate__animated animate__rollIn"
+      id="rounded-img"
+      class="img-container animate__delay-1s animate__animated"
     >
       <img class="img-isu" src="/img/isu_1.png" alt="Isabella" />
     </div>
-    <h1 id="subtitle" class="typography faded">de Isabella</h1>
+    <h1 id="subtitle" class="typography animate__delay-2s animate__animated">
+      de Isabella
+    </h1>
   </div>
 </section>
 
@@ -115,18 +122,45 @@
   #subtitle {
     backdrop-filter: blur(50px) saturate(100%);
   }
-
-  .faded {
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out 2s forwards;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 </style>
+
+<script>
+  const imgIsu = document.querySelector("#rounded-img");
+
+  const observer = new IntersectionObserver((entries) => {
+    // Loop over the entries
+    entries.forEach((entry) => {
+      // If the element is visible
+      if (entry.isIntersecting) {
+        // Add the animation class
+        if (imgIsu) {
+          imgIsu.classList.add("animate__rollIn");
+        }
+
+        const number = document.querySelector("#number");
+        if (number) {
+          number.classList.add("animate__slideInRight");
+        }
+
+        const angel = document.querySelector("#angel");
+        if (angel) {
+          angel.classList.add("animate__slideInLeft");
+        }
+
+        const title = document.querySelector("#title");
+        if (title) {
+          title.classList.add("animate__fadeIn");
+        }
+
+        const subtitle = document.querySelector("#subtitle");
+        if (subtitle) {
+          subtitle.classList.add("animate__fadeIn");
+        }
+      }
+    });
+  });
+
+  if (imgIsu) {
+    observer.observe(imgIsu);
+  }
+</script>
