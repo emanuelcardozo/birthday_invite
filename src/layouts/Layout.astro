@@ -31,11 +31,33 @@ const { title } = Astro.props;
     --dark-yellow: #ecec60;
   }
 
+  @font-face {
+    font-family: "Helsinki";
+    src: url("/fonts/helsinki.ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   body {
     height: 100vh;
 
     overflow: hidden;
     margin: 0;
     padding: 0;
+  }
+
+  main {
+    height: 100vh;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+  section {
+    width: 100dvw;
+    height: 100vh;
+
+    scroll-snap-align: center;
   }
 </style>

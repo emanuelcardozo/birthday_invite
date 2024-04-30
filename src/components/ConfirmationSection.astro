@@ -3,30 +3,32 @@ import Dialog from "./Dialog.astro";
 import Heart from "./Heart.astro";
 ---
 
-<div class="confirmation-container">
-  <div class="bg_container">
-    <div class="bg_heart">
-      <Heart />
-      <Heart />
-      <Heart />
-      <Heart />
-      <Heart />
-      <Heart />
+<section id="confirmation">
+  <div class="confirmation-container">
+    <div class="bg_container">
+      <div class="bg_heart">
+        <Heart />
+        <Heart />
+        <Heart />
+        <Heart />
+        <Heart />
+        <Heart />
+      </div>
+    </div>
+    <div class="img-container">
+      <Dialog
+        id="dialog2"
+        message="Hola familia y amigos, soy Isu y quiero presentarles..."
+      />
+      <img
+        id="img-isu2"
+        class="img-isu animate__animated"
+        src="/img/Isu_4.png"
+        alt="isu"
+      />
     </div>
   </div>
-  <div class="img-container">
-    <Dialog
-      id="dialog2"
-      message="Hola familia y amigos, soy Isu y quiero presentarles..."
-    />
-    <img
-      id="img-isu2"
-      class="img-isu animate__animated"
-      src="/img/Isu_4.png"
-      alt="isu"
-    />
-  </div>
-</div>
+</section>
 
 <style>
   .confirmation-container {

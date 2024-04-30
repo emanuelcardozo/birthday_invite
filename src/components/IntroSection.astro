@@ -1,0 +1,109 @@
+---
+import ScrollArrows from "./ScrollArrows.astro";
+---
+
+<section id="intro">
+  <div class="intro-container">
+    <h1 class="typography animate__animated animate__fadeIn">Hola...</h1>
+    <h1 class="typography animate__animated hided">
+      Tenemos algo que decirte...
+    </h1>
+    <h1 class="typography animate__animated hided">Pero antes...</h1>
+    <h1 class="typography animate__animated hided">
+      Recordá siempre scrollear
+    </h1>
+    <button class="btn typography animate__animated animate__pulse hided"
+      >OK</button
+    >
+    <ScrollArrows id="arrow" />
+  </div>
+</section>
+
+<style>
+  .intro-container {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: black;
+  }
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 3.5rem;
+  }
+
+  .typography {
+    color: var(--pink);
+    font-family: "Helsinki", sans-serif;
+    font-weight: bolder;
+    text-shadow: 2px 2px white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--dark-pink);
+  }
+
+  .hided,
+  .showed {
+    opacity: 0;
+    display: none;
+  }
+
+  button {
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid var(--dark-pink);
+    box-shadow: 2px 2px var(--pink);
+
+    animation-iteration-count: infinite;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<script>
+  function scrollToWelcome() {
+    // @ts-ignore
+    document.querySelector("#intro")?.style.setProperty("display", "none");
+  }
+
+  const button = document.querySelector("button");
+
+  button?.addEventListener("click", scrollToWelcome);
+
+  const DEFAULT_DELAY = 1000;
+  const titles = document.querySelectorAll(".intro-container h1.typography");
+  const interval = setInterval(() => {
+    const titleShowed = document.querySelector(
+      "h1.animate__animated.animate__fadeIn"
+    );
+    const titleHided = document.querySelector("h1.hided");
+
+    titleShowed?.classList.remove("animate__fadeIn");
+    titleShowed?.classList.add("animate__fadeOut");
+    titleShowed?.classList.add("showed");
+    titleHided?.classList.remove("hided");
+    titleHided?.classList.add("animate__fadeIn");
+  }, DEFAULT_DELAY);
+
+  setTimeout(
+    () => {
+      clearInterval(interval);
+      const arrow = document.querySelector("#arrow");
+      button?.classList.remove("hided");
+      arrow?.classList.remove("hided");
+    },
+    DEFAULT_DELAY * (titles.length - 1) + 500
+  );
+</script>
