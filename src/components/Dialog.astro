@@ -9,7 +9,7 @@ const { id, message, side = "left" } = Astro.props;
 ---
 
 <div id={id} class={"dialog animate__delay-1s animate__animated " + side}>
-  <p>{message}</p>
+  <p class="typography">{message}</p>
 </div>
 
 <style>
