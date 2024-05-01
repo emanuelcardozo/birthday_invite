@@ -1,75 +1,142 @@
----
-import Dialog from "./Dialog.astro";
----
-
 <section>
   <div class="container">
-    <div class="img-container">
-      <div id="question" class="question typography animate__animated">?</div>
-      <Dialog
-        id="dialog"
-        message="Bauticumple??? Si! festejo mi cumple y mi bautismo"
-        side="right"
-      />
-      <img
-        id="img-isu"
-        class="img-isu animate__animated"
-        src="/img/Isu_3.png"
-        alt="isu"
-      />
+    <img
+      id="angel"
+      class="img-angel animate__delay-3s animate__animated"
+      src="/img/angel.png"
+      alt="angel"
+    />
+    <div
+      id="number"
+      class="number typography animate__delay-3s animate__animated"
+    >
+      1
     </div>
+
+    <h1
+      id="rounded-title"
+      class="typography animate__delay-2s animate__animated"
+    >
+      BautiCumple
+    </h1>
+    <div
+      id="rounded-img"
+      class="img-container animate__delay-1s animate__animated"
+    >
+      <img class="img-isu" src="/img/isu_1.png" alt="Isabella" />
+    </div>
+    <h1
+      id="rounded-subtitle"
+      class="typography animate__delay-2s animate__animated"
+    >
+      de Isabella
+    </h1>
   </div>
 </section>
 
 <style>
   .container {
-    background: radial-gradient(circle, white, var(--yellow));
+    background: radial-gradient(circle, white, var(--pink));
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .number {
+    position: absolute;
+    bottom: -4rem;
+    right: 0;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 20rem;
+    color: var(--dark-yellow);
+    -webkit-text-stroke-color: var(--yellow);
+
+    filter: drop-shadow(5px 5px 5px var(--dark-pink));
   }
 
   .img-container {
-    width: 30rem;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    margin-block: -9rem -7.5rem;
+
+    height: 250px;
+    width: 250px;
+
+    border: 1rem solid white;
+    border-radius: 50%;
+    box-shadow: 5px 5px 0px gray;
+
+    background-image: url("/img/relieve.png");
+    background-blend-mode: overlay;
+    overflow: hidden;
+
     position: relative;
+    filter: drop-shadow(5px 5px 5px var(--dark-pink));
   }
 
-  .question {
-    font-size: 70vh;
-    position: absolute;
-    bottom: 0;
-    text-shadow: 10px 10px var(--dark-pink);
-  }
   .img-isu {
-    height: 80%;
-    filter: drop-shadow(-5px 5px 2px var(--dark-pink));
-    margin: auto;
+    width: auto;
+    object-fit: fill;
+    filter: drop-shadow(5px 5px 5px var(--pink));
 
+    margin: 1rem;
+  }
+
+  .img-angel {
+    width: 10rem;
     position: absolute;
-    right: -2rem;
-    bottom: 0;
+    top: 0;
+    left: 0;
+    filter: drop-shadow(5px 5px 5px var(--dark-pink));
+  }
+
+  #title,
+  #subtitle {
+    backdrop-filter: blur(50px) saturate(100%);
   }
 </style>
 
 <script>
-  const imgIsu = document.querySelector("#img-isu");
+  // @ts-ignore
+  import CircleType from "circletype";
+
+  const title = document.querySelector("#rounded-title");
+  const circleTypeTitle = new CircleType(title);
+  circleTypeTitle.radius(205);
+
+  const subtitle = document.querySelector("#rounded-subtitle");
+  const circleTypeSubTitle = new CircleType(subtitle);
+  circleTypeSubTitle.radius(210).dir(-1);
+
+  const imgIsu = document.querySelector("#rounded-img");
 
   const observer = new IntersectionObserver((entries) => {
-    // Loop over the entries
     entries.forEach((entry) => {
-      // If the element is visible
       if (entry.isIntersecting) {
-        // Add the animation class
         if (imgIsu) {
-          imgIsu.classList.add("animate__slideInRight");
+          imgIsu.classList.add("animate__rollIn");
         }
 
-        const dialog = document.querySelector("#dialog");
-        if (dialog) {
-          dialog.classList.add("animate__fadeIn");
+        const number = document.querySelector("#number");
+        if (number) {
+          number.classList.add("animate__slideInRight");
         }
 
-        const question = document.querySelector("#question");
-        if (question) {
-          question.classList.add("animate__heartBeat");
+        const angel = document.querySelector("#angel");
+        if (angel) {
+          angel.classList.add("animate__slideInLeft");
+        }
+
+        if (title) {
+          title.classList.add("animate__fadeIn");
+        }
+
+        if (subtitle) {
+          subtitle.classList.add("animate__fadeIn");
         }
       }
     });

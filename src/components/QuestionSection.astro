@@ -1,0 +1,78 @@
+---
+import Dialog from "./Dialog.astro";
+---
+
+<section>
+  <div class="container">
+    <div class="img-container">
+      <div id="question" class="question typography animate__animated">?</div>
+      <Dialog
+        id="dialog"
+        message="Bauticumple??? Si! festejo mi cumple y mi bautismo"
+        side="right"
+      />
+      <img
+        id="img-isu"
+        class="img-isu animate__animated"
+        src="/img/Isu_3.png"
+        alt="isu"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .container {
+    background: radial-gradient(circle, white, var(--yellow));
+  }
+
+  .img-container {
+    width: 30rem;
+    height: 100%;
+    position: relative;
+  }
+
+  .question {
+    font-size: 70vh;
+    position: absolute;
+    bottom: 0;
+    text-shadow: 10px 10px var(--dark-pink);
+  }
+  .img-isu {
+    height: 80%;
+    filter: drop-shadow(-5px 5px 2px var(--dark-pink));
+    margin: auto;
+
+    position: absolute;
+    right: -2rem;
+    bottom: 0;
+  }
+</style>
+
+<script>
+  const imgIsu = document.querySelector("#img-isu");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (imgIsu) {
+          imgIsu.classList.add("animate__slideInRight");
+        }
+
+        const dialog = document.querySelector("#dialog");
+        if (dialog) {
+          dialog.classList.add("animate__fadeIn");
+        }
+
+        const question = document.querySelector("#question");
+        if (question) {
+          question.classList.add("animate__heartBeat");
+        }
+      }
+    });
+  });
+
+  if (imgIsu) {
+    observer.observe(imgIsu);
+  }
+</script>

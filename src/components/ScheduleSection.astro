@@ -62,11 +62,8 @@ import Dialog from "./Dialog.astro";
   const imgIsu = document.querySelector("#img-isu5");
 
   const observer = new IntersectionObserver((entries) => {
-    // Loop over the entries
     entries.forEach((entry) => {
-      // If the element is visible
       if (entry.isIntersecting) {
-        // Add the animation class
         if (imgIsu) {
           imgIsu.classList.add("animate__slideInRight");
         }
