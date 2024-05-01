@@ -3,7 +3,7 @@ import Dialog from "./Dialog.astro";
 ---
 
 <section>
-  <div class="birthday-container">
+  <div class="container">
     <div class="img-container">
       <img
         id="rainbow"
@@ -27,17 +27,8 @@ import Dialog from "./Dialog.astro";
 </section>
 
 <style>
-  .birthday-container {
-    height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding-top: 1rem;
-
+  .container {
     background: radial-gradient(circle, white, var(--yellow));
-
-    position: relative;
   }
 
   .img-container {

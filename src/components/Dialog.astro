@@ -1,7 +1,7 @@
 ---
 interface Props {
   id: string;
-  message: string;
+  message?: string;
   side?: string;
 }
 
@@ -9,7 +9,7 @@ const { id, message, side = "left" } = Astro.props;
 ---
 
 <div id={id} class={"dialog animate__delay-1s animate__animated " + side}>
-  <p class="typography">{message}</p>
+  <p class="typography">{message || <slot />}</p>
 </div>
 
 <style>
