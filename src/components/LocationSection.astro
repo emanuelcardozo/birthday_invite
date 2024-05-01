@@ -1,0 +1,80 @@
+---
+import Dialog from "./Dialog.astro";
+---
+
+<section>
+  <div class="container">
+    <div class="img-container">
+      <Dialog id="dialog_location"
+        >En Ramón Falcón 5181, I. Casanova <a
+          href="https://maps.app.goo.gl/3aKcduzevZZnru4Y8">Aquí</a
+        ></Dialog
+      >
+      <div class="inverted">
+        <img
+          id="img-isu5"
+          class="img-isu animate__animated"
+          src="/img/Isu_5.png"
+          alt="isu"
+        />
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .container {
+      background: radial-gradient(circle, white, #8af0ce);
+    }
+
+    .img-container {
+      width: 30rem;
+      height: 100%;
+      position: relative;
+    }
+
+    .inverted {
+      --webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+
+      width: 100%;
+      height: 80%;
+    }
+
+    .img-isu {
+      height: 100%;
+      filter: drop-shadow(-5px 5px 5px gray);
+      margin: auto;
+
+      position: absolute;
+      right: -5rem;
+      bottom: 0;
+      z-index: 2;
+    }
+  </style>
+</section>
+
+<script>
+  const imgIsu = document.querySelector("#img-isu5");
+
+  const observer = new IntersectionObserver((entries) => {
+    // Loop over the entries
+    entries.forEach((entry) => {
+      // If the element is visible
+      if (entry.isIntersecting) {
+        // Add the animation class
+        if (imgIsu) {
+          imgIsu.classList.add("animate__slideInRight");
+        }
+
+        const dialog = document.querySelector("#dialog_location");
+        if (dialog) {
+          dialog.classList.add("animate__fadeIn");
+        }
+      }
+    });
+  });
+
+  if (imgIsu) {
+    observer.observe(imgIsu);
+  }
+</script>
