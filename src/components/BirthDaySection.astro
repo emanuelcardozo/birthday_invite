@@ -5,15 +5,10 @@ import Dialog from "./Dialog.astro";
 <section>
   <div class="container">
     <div class="img-container">
-      <img
-        id="rainbow"
-        class="img-isu animate__animated"
-        src="/img/rainbow.png"
-        alt="rainbow"
-      />
+      <div id="question" class="question typography animate__animated">?</div>
       <Dialog
         id="dialog"
-        message="El 18 de Mayo, a las 20hs festejo mi bautismo y cumple"
+        message="Bauticumple??? Si! festejo mi cumple y mi bautismo"
         side="right"
       />
       <img
@@ -37,13 +32,19 @@ import Dialog from "./Dialog.astro";
     position: relative;
   }
 
+  .question {
+    font-size: 70vh;
+    position: absolute;
+    bottom: 0;
+    text-shadow: 10px 10px var(--dark-pink);
+  }
   .img-isu {
     height: 80%;
-    filter: drop-shadow(5px 5px 5px gray);
+    filter: drop-shadow(-5px 5px 2px var(--dark-pink));
     margin: auto;
 
     position: absolute;
-    right: -5rem;
+    right: -2rem;
     bottom: 0;
   }
 </style>
@@ -66,9 +67,9 @@ import Dialog from "./Dialog.astro";
           dialog.classList.add("animate__fadeIn");
         }
 
-        const rainbow = document.querySelector("#rainbow");
-        if (rainbow) {
-          rainbow.classList.add("animate__rotateInDownLeft");
+        const question = document.querySelector("#question");
+        if (question) {
+          question.classList.add("animate__heartBeat");
         }
       }
     });
