@@ -1,0 +1,90 @@
+---
+import Dialog from "./Dialog.astro";
+---
+
+<section>
+  <div class="container">
+    <div class="img-container">
+      <Dialog
+        id="pepito"
+        message="Y tengo un lugar en Ramón Falcón 5181 para vos..."
+        side="right"
+      />
+      <img
+        id="img-isu_location"
+        class="img-isu animate__animated"
+        src="/img/Isu_2-min.png"
+        alt="isu location"
+      />
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.6453497480397!2d-58.59553449999999!3d-34.688899299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc659e16eabdd%3A0xf04bc1e2b0b819e3!2sRam%C3%B3n%20Falc%C3%B3n%205181%2C%20B1765FGO%20Isidro%20Casanova%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1714702309869!5m2!1ses-419!2sar"
+        class="animate__animated"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  iframe {
+    width: 80vw;
+    height: 20vh;
+    border: 0;
+    position: absolute;
+    bottom: 26%;
+    right: 10%;
+    border: 7px solid var(--pink);
+    border-radius: 1rem;
+    box-shadow: 3px 3px 2px var(--dark-pink);
+    transform: rotate(-3deg);
+  }
+
+  .container {
+    background: radial-gradient(circle, white, #c8c3f8);
+  }
+
+  .img-container {
+    width: 30rem;
+    height: 100%;
+    position: relative;
+  }
+
+  .img-isu {
+    height: 80%;
+    filter: drop-shadow(-5px 5px 2px var(--dark-pink));
+    margin: auto;
+
+    position: absolute;
+    right: -2rem;
+    bottom: 0;
+  }
+</style>
+
+<script>
+  const imgIsu = document.querySelector("#img-isu_location");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (imgIsu) {
+          imgIsu.classList.add("animate__slideInRight");
+        }
+
+        const map = document.querySelector("iframe");
+        if (map) {
+          map.classList.add("animate__slideInRight");
+        }
+
+        const dialog = document.querySelector("#pepito");
+        if (dialog) {
+          dialog.classList.add("animate__fadeIn");
+        }
+      }
+    });
+  });
+
+  if (imgIsu) {
+    observer.observe(imgIsu);
+  }
+</script>
