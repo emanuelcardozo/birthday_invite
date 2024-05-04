@@ -27,10 +27,51 @@
     </svg>
 
     <span class="text typography">Venís?</span>
+    <div class="responses">
+      <a
+        href="https://wa.me/+5401133651498/?text=Genial!%20Cont%C3%A1%20conmigo%20Isu."
+        class="rounded typography animate__animated animate__pulse">SI</a
+      >
+      <a
+        href="https://wa.me/+5401133651498/?text=Perd%C3%B3n%20Isu,%20no%20puedo."
+        class="rounded typography animate__animated animate__pulse">NO</a
+      >
+    </div>
   </div>
 </section>
 
 <style>
+  .container {
+    position: relative;
+  }
+
+  .responses {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 3rem;
+
+    position: absolute;
+    top: 60%;
+  }
+
+  .rounded {
+    text-decoration: none;
+    width: 5rem;
+    text-align: center;
+    background-color: white;
+    border: 3px solid #fce3e9;
+    border-radius: 50%;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    animation-iteration-count: infinite;
+  }
+
+  .rounded:first-child {
+    animation-delay: 0.5s;
+  }
+
   #canvas {
     background: #ff93a6;
     position: absolute;
