@@ -50,6 +50,8 @@ const { title } = Astro.props;
 
     --green: #8af0ce;
     --dark-green: #4f9d7e;
+
+    --section-padding: 4rem;
   }
 
   @font-face {
@@ -88,20 +90,20 @@ const { title } = Astro.props;
   }
   section {
     width: 100vw;
-    height: 100%;
+    height: 100vh;
 
     scroll-snap-align: center;
   }
 
   section .container {
-    height: 100%;
+    height: calc(100% - var(--section-padding));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
 
-    padding-top: 1rem;
+    padding: var(--section-padding) 0 0;
   }
 
   .typography {

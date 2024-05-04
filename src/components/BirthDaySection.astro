@@ -1,33 +1,32 @@
 <section>
   <div class="container">
-    <img
-      id="angel"
-      class="img-angel animate__delay-3s animate__animated"
-      src="/img/angel-min.png"
-      alt="angel"
-    />
+    <div class="angel-container">
+      <img
+        id="angel"
+        class="img-angel animate__delay-2s animate__animated"
+        src="/img/angel-min.png"
+        alt="angel"
+      />
+    </div>
     <div
       id="number"
-      class="number typography animate__delay-3s animate__animated"
+      class="number typography animate__delay-2s animate__animated"
     >
-      1
+      1<sup>er</sup>
     </div>
 
     <h1
       id="rounded-title"
-      class="typography animate__delay-2s animate__animated"
+      class="typography animate__delay-1s animate__animated"
     >
       BautiCumple
     </h1>
-    <div
-      id="rounded-img"
-      class="img-container animate__delay-1s animate__animated"
-    >
+    <div id="rounded-img" class="img-container animate__animated">
       <img class="img-isu" src="/img/isu_1-min.png" alt="Isabella" />
     </div>
     <h1
       id="rounded-subtitle"
-      class="typography animate__delay-2s animate__animated"
+      class="typography animate__delay-1s animate__animated"
     >
       de Isabella
     </h1>
@@ -37,6 +36,8 @@
 <style>
   .container {
     background: radial-gradient(circle, white, var(--pink));
+
+    bottom: 0;
   }
   h1 {
     font-size: 3.5rem;
@@ -44,8 +45,8 @@
 
   .number {
     position: absolute;
-    bottom: -4rem;
-    right: 0;
+    top: 0;
+    left: 0;
 
     margin: 0;
     padding: 0;
@@ -55,6 +56,11 @@
     -webkit-text-stroke-color: var(--yellow);
 
     filter: drop-shadow(5px 5px 5px var(--dark-pink));
+  }
+
+  .number sup {
+    font-size: 2.5rem;
+    vertical-align: super;
   }
 
   .img-container {
@@ -86,12 +92,17 @@
     margin: 1rem;
   }
 
+  .angel-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(-1);
+  }
+
   .img-angel {
     width: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
     filter: drop-shadow(5px 5px 5px var(--dark-pink));
+    transform: rotateX(-1);
   }
 
   #title,
@@ -123,7 +134,7 @@
 
         const number = document.querySelector("#number");
         if (number) {
-          number.classList.add("animate__slideInRight");
+          number.classList.add("animate__slideInLeft");
         }
 
         const angel = document.querySelector("#angel");
