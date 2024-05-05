@@ -114,19 +114,19 @@
   // @ts-ignore
   import CircleType from "circletype";
 
-  const title = document.querySelector("#rounded-title");
-  const circleTypeTitle = new CircleType(title);
-  circleTypeTitle.radius(205);
-
-  const subtitle = document.querySelector("#rounded-subtitle");
-  const circleTypeSubTitle = new CircleType(subtitle);
-  circleTypeSubTitle.radius(210).dir(-1);
-
   const imgIsu = document.querySelector("#rounded-img");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        const title = document.querySelector("#rounded-title");
+        const circleTypeTitle = new CircleType(title);
+        circleTypeTitle.radius(205);
+
+        const subtitle = document.querySelector("#rounded-subtitle");
+        const circleTypeSubTitle = new CircleType(subtitle);
+        circleTypeSubTitle.radius(210).dir(-1);
+
         if (imgIsu) {
           imgIsu.classList.add("animate__rollIn", "visible");
         }
