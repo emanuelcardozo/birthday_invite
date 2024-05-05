@@ -12,13 +12,13 @@ import Dialog from "./Dialog.astro";
       <div class="inverted">
         <img
           id="rainbow"
-          class="img-isu animate__animated"
+          class="img-isu animate__animated invisible"
           src="/img/rainbow-min.webp"
           alt="rainbow"
         />
         <img
           id="img-isu5"
-          class="img-isu animate__animated"
+          class="img-isu animate__animated invisible"
           src="/img/Isu_5-min.webp"
           alt="isu"
         />
@@ -68,17 +68,17 @@ import Dialog from "./Dialog.astro";
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         if (imgIsu) {
-          imgIsu.classList.add("animate__slideInRight");
+          imgIsu.classList.add("animate__slideInRight", "visible");
         }
 
         const dialog = document.querySelector("#dialog_location");
         if (dialog) {
-          dialog.classList.add("animate__fadeIn");
+          dialog.classList.add("animate__fadeIn", "visible");
         }
 
         const rainbow = document.querySelector("#rainbow");
         if (rainbow) {
-          rainbow.classList.add("animate__rotateInDownLeft");
+          rainbow.classList.add("animate__rotateInDownLeft", "visible");
         }
       }
     });

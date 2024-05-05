@@ -3,14 +3,14 @@
     <div class="angel-container">
       <img
         id="angel"
-        class="img-angel animate__delay-2s animate__animated"
+        class="img-angel animate__delay-2s animate__animated invisible"
         src="/img/angel-min.webp"
         alt="angel"
       />
     </div>
     <img
       id="number"
-      class="balloons animate__delay-2s animate__animated"
+      class="balloons animate__delay-2s animate__animated invisible"
       src="/img/balloons-min.webp"
     />
 
@@ -20,7 +20,7 @@
     >
       BautiCumple
     </h1>
-    <div id="rounded-img" class="img-container animate__animated">
+    <div id="rounded-img" class="img-container animate__animated invisible">
       <img class="img-isu" src="/img/isu_1-min.webp" alt="Isabella" />
     </div>
     <h1
@@ -128,17 +128,17 @@
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         if (imgIsu) {
-          imgIsu.classList.add("animate__rollIn");
+          imgIsu.classList.add("animate__rollIn", "visible");
         }
 
         const number = document.querySelector("#number");
         if (number) {
-          number.classList.add("animate__slideInLeft");
+          number.classList.add("animate__slideInLeft", "visible");
         }
 
         const angel = document.querySelector("#angel");
         if (angel) {
-          angel.classList.add("animate__slideInLeft");
+          angel.classList.add("animate__slideInLeft", "visible");
         }
 
         if (title) {

@@ -12,13 +12,13 @@ import Dialog from "./Dialog.astro";
       />
       <img
         id="img-isu_location"
-        class="img-isu animate__animated"
+        class="img-isu animate__animated invisible"
         src="/img/Isu_2-min.webp"
         alt="isu location"
       />
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.6453497480397!2d-58.59553449999999!3d-34.688899299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc659e16eabdd%3A0xf04bc1e2b0b819e3!2sRam%C3%B3n%20Falc%C3%B3n%205181%2C%20B1765FGO%20Isidro%20Casanova%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1714702309869!5m2!1ses-419!2sar"
-        class="animate__animated animate__delay-1s"
+        class="animate__animated invisible animate__delay-1s"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -69,17 +69,17 @@ import Dialog from "./Dialog.astro";
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         if (imgIsu) {
-          imgIsu.classList.add("animate__slideInRight");
+          imgIsu.classList.add("animate__slideInRight", "visible");
         }
 
         const map = document.querySelector("iframe");
         if (map) {
-          map.classList.add("animate__flipInX");
+          map.classList.add("animate__flipInX", "visible");
         }
 
         const dialog = document.querySelector("#pepito");
         if (dialog) {
-          dialog.classList.add("animate__fadeIn");
+          dialog.classList.add("animate__fadeIn", "visible");
         }
       }
     });

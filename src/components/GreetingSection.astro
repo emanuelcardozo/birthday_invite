@@ -22,7 +22,7 @@ import Heart from "./Heart.astro";
       />
       <img
         id="img-isu2"
-        class="img-isu animate__animated"
+        class="img-isu animate__animated invisible"
         src="/img/Isu_4-min.webp"
         alt="isu"
       />
@@ -76,7 +76,7 @@ import Heart from "./Heart.astro";
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         if (imgIsu) {
-          imgIsu.classList.add("animate__slideInUp");
+          imgIsu.classList.add("animate__slideInUp", "visible");
         }
 
         const dialog = document.querySelector("#dialog2");
