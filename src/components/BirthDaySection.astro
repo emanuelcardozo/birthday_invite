@@ -8,12 +8,11 @@
         alt="angel"
       />
     </div>
-    <div
+    <img
       id="number"
-      class="number typography animate__delay-2s animate__animated"
-    >
-      1<sup>er</sup>
-    </div>
+      class="balloons animate__delay-2s animate__animated"
+      src="/img/balloons-min.webp"
+    />
 
     <h1
       id="rounded-title"
@@ -44,17 +43,16 @@
     z-index: 5;
   }
 
-  .number {
+  .balloons {
     position: absolute;
-    top: 2rem;
+    top: 4rem;
     left: 0;
+
+    width: 50%;
+    height: auto;
 
     margin: 0;
     padding: 0;
-
-    font-size: 15rem;
-    color: var(--dark-yellow);
-    -webkit-text-stroke-color: var(--yellow);
 
     filter: drop-shadow(5px 5px 5px var(--dark-pink));
   }

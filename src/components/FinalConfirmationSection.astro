@@ -26,6 +26,8 @@
       </defs>
     </svg>
 
+    <img class="rainbow" src="/img/rainbow2-min.webp" alt="rainbow" />
+
     <span class="text typography">Venís?</span>
     <div class="responses">
       <a
@@ -49,6 +51,31 @@
     height: 100vh;
   }
 
+  .rainbow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(5px 5px 5px var(--dark-pink));
+
+    animation: float 2s ease-in-out 0s infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translatey(0px);
+    }
+
+    50% {
+      transform: translatey(-20px);
+    }
+
+    100% {
+      transform: translatey(0px);
+    }
+  }
+
   .responses {
     display: flex;
     justify-content: space-around;
@@ -68,6 +95,8 @@
     border-radius: 50%;
     padding: 10px 20px;
     cursor: pointer;
+
+    box-shadow: 5px 5px 5px var(--dark-pink);
   }
 
   .rounded:first-child {
@@ -99,7 +128,7 @@
     padding: 10px 20px;
     border-radius: 5px;
     border: 3px solid #fce3e9;
-    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 5px var(--dark-pink);
   }
 
   .arrow_container {
